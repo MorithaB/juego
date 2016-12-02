@@ -18,13 +18,17 @@ table {
 td {
     text-align: center;
     margin: 0px;
-    border: 1px solid black;
+    border: 2px solid #607d8b;
     padding: 0px;
     width: 70px;
     height: 70px;
 }
 
-.opcion {
+/*td[data-estado='vacio'] {
+    background-color: red;
+}*/
+
+#opcion {
     border: 1px solid black;
     width: 70px;
     height: 70px;
@@ -36,4 +40,29 @@ td {
     text-align: center;
     cursor: pointer;
     background: green;
+}
+
+.blue {
+    background: #2196f3;
+}
+.red {
+    background: #e53935;
+}
+.purple {
+    background: #7b1fa2;
+}
+.amber {
+    background: #ffa000;
+}
+.green {
+    background: #64dd17;
+}
+.pink {
+    background: #f50057;
+}
+.teal {
+    background: #1de9b6;
+}
+.yellow {
+    background: #ffeb3b;
 }
