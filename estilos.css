@@ -12,6 +12,7 @@ body {
 
 table {
     border-collapse: collapse;
+    margin-right: 10px;
 }
 
 td {
@@ -21,4 +22,18 @@ td {
     padding: 0px;
     width: 70px;
     height: 70px;
+}
+
+.opcion {
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+}
+
+.elemento {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    cursor: pointer;
+    background: green;
 }
