@@ -15,9 +15,6 @@ opcion.appendChild(gestorFichas.entregarFicha())
 
 let drake = dragula({
     accepts: (el, target, source, sibling) => {
-        if (source === target)
-            return false
-
         if (target.dataset.estado === 'lleno')
             return false
 
