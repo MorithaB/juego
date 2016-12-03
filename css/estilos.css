@@ -38,7 +38,7 @@ td {
 }
 
 .elemento[data-saved='true'] {
-    background: url('happy.png');
+    background: url('../img/happy.png');
     background-size: contain;
 }
 
