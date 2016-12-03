@@ -24,10 +24,6 @@ td {
     height: 70px;
 }
 
-/*td[data-estado='vacio'] {
-    background-color: red;
-}*/
-
 #opcion {
     border: 1px solid black;
     width: 70px;
@@ -39,7 +35,11 @@ td {
     height: 70px;
     text-align: center;
     cursor: pointer;
-    background: green;
+}
+
+.elemento[data-saved='true'] {
+    background: url('happy.png');
+    background-size: contain;
 }
 
 .blue {
