@@ -24,8 +24,34 @@ td {
     height: 70px;
 }
 
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 290px;
+}
+
+.menu {
+    width: 70px;
+    height: 70px;
+}
+
+.menu {
+    cursor: pointer;
+}
+
+.menu[data-estado='stopped'] {
+    display: block;
+    background: url('../img/begin.png');
+    background-size: contain;
+}
+
+.menu[data-estado='started'] {
+    display: none;
+}
+
 #opcion {
-    border: 1px solid black;
+    border: 2px solid #607d8b;
     width: 70px;
     height: 70px;
 }
@@ -40,6 +66,10 @@ td {
 .elemento[data-saved='true'] {
     background: url('../img/happy.png');
     background-size: contain;
+}
+
+div[data-saved='true'] {
+    cursor: auto;
 }
 
 .blue {

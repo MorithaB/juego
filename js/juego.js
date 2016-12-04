@@ -2,16 +2,22 @@
 
 let vacio = new Event('vacio')
 
-let celdas = document.querySelectorAll('.celda')
-let opcion = document.querySelector('#opcion')
+let vista = {
+    celdas: document.querySelectorAll('.celda'),
+    opcion:  document.querySelector('#opcion'),
+    menu: document.querySelector('.menu')
+}
 
-let tablero = new Tablero(celdas)
-let gestorFichas = new GestorFichas(celdas.length)
+vista.limpiarTablero = function() {
+    for(let celda of this.celdas) {
+        if(celda.firstChild) {
+            celda.removeChild(celda.firstChild)
+            celda.classList.remove(celda.classList.item(1))
+        }
+    }
+}
 
-tablero.colorearCeldas()
-gestorFichas.colorearFichas()
-
-opcion.appendChild(gestorFichas.entregarFicha())
+let juego = undefined
 
 let drake = dragula({
     accepts: (el, target, source, sibling) => {
@@ -31,22 +37,30 @@ let drake = dragula({
     }
 });
 
-for (let celda of celdas)
+for (let celda of vista.celdas)
     drake.containers.push(celda)
 
-drake.containers.push(opcion)
+drake.containers.push(vista.opcion)
 
 drake.on('drop', (el, target, source, sibling) => {
     el.dataset.saved = true
     target.dataset.estado = 'lleno'
 
-    if(gestorFichas.getNumFichas() > 0)
-        opcion.appendChild(gestorFichas.entregarFicha())
+    if(juego.gestorFichas.getNumFichas() > 0)
+        vista.opcion.appendChild(juego.gestorFichas.entregarFicha())
     else
         window.dispatchEvent(vacio)
+})
 
+vista.menu.addEventListener('click', (e) => {
+    if(e.target.dataset.estado === 'stopped') {
+        vista.limpiarTablero()
+        juego = new Juego(vista)
+        juego.iniciar()
+    }
 })
 
 window.addEventListener('vacio', (e) => {
     alert('Buena Buena')
+    juego.terminar()
 })
