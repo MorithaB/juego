@@ -5,7 +5,8 @@ let vacio = new Event('vacio')
 let vista = {
     celdas: document.querySelectorAll('.celda'),
     opcion:  document.querySelector('#opcion'),
-    menu: document.querySelector('.menu')
+    menu: document.querySelector('.menu'),
+	tiempo: document.getElementById('time')
 }
 
 vista.limpiarTablero = function() {

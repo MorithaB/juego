@@ -6,16 +6,13 @@ class Juego {
 
         this.tablero = new Tablero(vista.celdas)
         this.gestorFichas = new GestorFichas(vista.celdas.length)
-        this.timer = undefined
+        this.timer = new Timer(vista.tiempo)
 
         vista.menu.dataset.estado = 'stopped'
     }
 
     iniciar() {
-        if(this.timer)
-            clearInterval(this.timer)
-
-        this.timer = setInterval(() => {this.print()}, 1000)
+		this.timer.iniciar()
 
         this.tablero.colorearCeldas()
         this.gestorFichas.colorearFichas()
@@ -24,13 +21,8 @@ class Juego {
         vista.menu.dataset.estado = 'started'
     }
 
-    print() {
-        console.log(this.tiempo)
-        this.tiempo++
-    }
-
     terminar() {
-        clearInterval(this.timer)
+		this.timer.terminar()
         vista.menu.dataset.estado = 'stopped'
     }
 }
